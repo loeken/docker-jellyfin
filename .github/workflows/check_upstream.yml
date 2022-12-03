@@ -1,0 +1,21 @@
+name: check last version
+on:
+  push:
+    branches: [ main ]
+  # schedule:
+  # -  cron: '0 10 * * *'
+    
+jobs:
+  check_version:
+    runs-on: ubuntu-22.04
+    steps:
+      - id: check_version
+        uses: pozetroninc/github-action-get-latest-release@master
+        with:
+          owner: jellyfin
+          repo: jellyfin
+          excludes: prerelease, draft
+
+      - name: fail when not matching
+        if: steps.check_version.outputs.release != '2022.11.4'
+        run: echo "last version "${{ steps.test.outputs.release }}" != '2022.11.4'" && exit 1  
