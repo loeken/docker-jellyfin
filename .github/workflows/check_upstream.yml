@@ -17,5 +17,5 @@ jobs:
           excludes: prerelease, draft
 
       - name: fail when not matching
-        if: steps.check_version.outputs.release != '2022.11.4'
-        run: echo "last version "${{ steps.test.outputs.release }}" != '2022.11.4'" && exit 1  
+        if: steps.check_version.outputs.release != 'v10.8.8'
+        run: echo "last version ${{ steps.test.outputs.release }} != 'v10.8.8'" && exit 1  
