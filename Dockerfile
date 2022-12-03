@@ -1,16 +1,11 @@
 FROM alpine:3.17 as builder
 
  RUN apk add \
-    #  jellyfin \
-    #  jellyfin-web \
-    #  jellyfin-mpv-shim \
     gcc \
     g++ \
     make \
     yasm yasm-dev \
     nasm 
-
-#CMD [ "which","ffmpeg" ]
 
 RUN mkdir /ffmpeg
 COPY . /ffmpeg
