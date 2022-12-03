@@ -12,7 +12,7 @@ COPY . /ffmpeg
 
 WORKDIR /ffmpeg
 RUN ./configure
-RUN make -j 8
+RUN make
 RUN make install DESTDIR=/output
 
 RUN ls /output
@@ -28,3 +28,5 @@ ENTRYPOINT ["/usr/bin/jellyfin", \
      "--datadir", "/config", \
      "--cachedir", "/cache", \
      "--ffmpeg", "/usr/bin/ffmpeg"]
+
+
