@@ -15,7 +15,6 @@ RUN ./configure
 RUN make
 RUN make install DESTDIR=/output
 
-RUN ls /output
 FROM alpine:3.17
 
 RUN apk add \
