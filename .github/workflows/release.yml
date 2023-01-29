@@ -3,7 +3,7 @@ on:
   push:
     branches: [ main ]
 env:
-  version: 10.8.8
+  version: 10.8.9
 jobs:
   release:
     runs-on: ubuntu-22.04
