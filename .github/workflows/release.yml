@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: loeken/jellyfin:${{ env.version }},loeken/jellyfin:latest
+          tags: loeken/jellyfin:${{ env.VERSION }},loeken/jellyfin:latest
           context: ./jf
           no-cache: true
       - name: Run Snyk to check Docker image for vulnerabilities
@@ -52,11 +52,11 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          image: loeken/jellyfin:${{ env.version }}
+          image: loeken/jellyfin:${{ env.VERSION }}
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: loeken/jellyfin:${{ env.version }}
+          image-ref: loeken/jellyfin:${{ env.VERSION }}
           format: 'table'
           exit-code: '0'
           ignore-unfixed: true
