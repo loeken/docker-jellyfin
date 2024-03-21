@@ -1,4 +1,4 @@
-FROM alpine:3.17 as builder
+FROM alpine:3.19 as builder
 
 RUN apk add \
     gcc \
@@ -15,7 +15,7 @@ RUN ./configure
 RUN make
 RUN make install DESTDIR=/output
 
-FROM alpine:3.17
+FROM alpine:3.19
 
 RUN apk add \
      jellyfin \
