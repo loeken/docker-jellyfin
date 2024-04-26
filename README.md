@@ -11,7 +11,7 @@ the github action:
 
 minimal poc
 ```
-docker pull loeken/jellyfin:10.8.8
+docker pull loeken/jellyfin:10.8.13
 docker run -p 8096:8096 loeken/jellyfin
 ```
 
