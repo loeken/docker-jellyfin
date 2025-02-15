@@ -5,7 +5,7 @@ RUN apk add \
     g++ \
     make \
     yasm yasm-dev \
-    nasm 
+    nasm
 
 RUN mkdir /ffmpeg
 COPY . /ffmpeg
@@ -17,10 +17,15 @@ RUN make install DESTDIR=/output
 
 FROM alpine:3.19
 
-RUN apk add \
+RUN apk add --no-cache \
      jellyfin \
      jellyfin-web \
-     jellyfin-mpv-shim
+     jellyfin-mpv-shim \
+     mesa-dri-gallium \
+     intel-media-driver \
+     intel-media-sdk \
+     libva-intel-driver \
+     onevpl
 COPY --from=builder /output /
 
 ENTRYPOINT ["/usr/bin/jellyfin", \
