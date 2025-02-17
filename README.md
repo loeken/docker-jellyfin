@@ -14,4 +14,3 @@ minimal poc
 docker pull loeken/jellyfin:10.10.6
 docker run -p 8096:8096 loeken/jellyfin
 ```
-
