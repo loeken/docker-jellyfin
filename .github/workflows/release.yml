@@ -30,27 +30,11 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Get version number
-        run: |
-          ls -la
-          VERSION=$(cat docker-jf/version.yaml | grep 'version' | cut -d ' ' -f4)
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-      - name: Use version number in next step
-        run: |
-          echo $VERSION 
 
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: loeken/jellyfin:${{ env.VERSION }},loeken/jellyfin:latest
+          tags: loeken/jellyfin:10.10.6,loeken/jellyfin:latest
           context: ./jf
           no-cache: true
-      - name: Run Snyk to check Docker image for vulnerabilities
-        uses: snyk/actions/docker@master
-        continue-on-error: true
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          image: loeken/jellyfin:${{ env.VERSION }}
-      
