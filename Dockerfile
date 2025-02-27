@@ -1,4 +1,4 @@
-FROM alpine:3.20 as builder
+FROM alpine:3.21@sha256:a8560b36e8b8210634f77d9f7f9efd7ffa463e380b75e2e74aff4511df3ef88c as builder
 
 RUN apk add \
     gcc \
@@ -15,7 +15,7 @@ RUN ./configure
 RUN make
 RUN make install DESTDIR=/output
 
-FROM alpine:3.19
+FROM alpine:3.21@sha256:a8560b36e8b8210634f77d9f7f9efd7ffa463e380b75e2e74aff4511df3ef88c
 
 RUN apk add --no-cache \
      jellyfin \
