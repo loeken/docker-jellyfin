@@ -5,8 +5,9 @@
   "prHourlyLimit": 0,
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["jellyfin/jellyfin"],
+      "groupName": "jellyfin"
     }
   ],
   "pinDigests": true
