@@ -1,0 +1,18 @@
+services:
+  docker-jellyfin-devcontainer-base:
+    container_name: docker-jellyfin-devcontainer-base
+    build:
+      context: .
+      dockerfile: ./deploy/docker/Dockerfile.dev
+    restart: "no"
+    env_file: .env
+    networks:
+      - docker-jellyfin-devcontainer-base-network
+    volumes:
+      - ${HOME}/.config/gh:/home/vscode/.config/gh
+      - ${HOME}/.ssh:/home/vscode/.ssh
+      - ${HOME}/.zhistory:/home/vscode/.zhistory
+# Networks to be created to facilitate communication between containers
+networks:
+  docker-jellyfin-devcontainer-base-network:
+    driver: bridge

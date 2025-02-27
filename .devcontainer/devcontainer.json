@@ -1,0 +1,14 @@
+{
+    "name": "docker-jellyfin-devcontainer-basee",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "docker-jellyfin-devcontainer-base",
+    "workspaceFolder": "/app",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "oderwat.indent-rainbow",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    }
+}
