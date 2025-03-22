@@ -7,7 +7,8 @@
     {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["jellyfin/jellyfin"],
-      "groupName": "jellyfin"
+      "groupName": "jellyfin",
+      "automerge": true
     }
   ],
   "pinDigests": true
