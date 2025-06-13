@@ -3,13 +3,34 @@
   "prConcurrentLimit": 0,
   "branchConcurrentLimit": 0,
   "prHourlyLimit": 0,
+  "pinDigests": true,
   "packageRules": [
     {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["jellyfin/jellyfin"],
       "groupName": "jellyfin",
       "automerge": true
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePatterns": ["loeken/jellyfin"],
+      "groupName": "loeken/jellyfin",
+      "automerge": true,
+      "extractVersion": "loeken/jellyfin:(?<version>.*)",
+      "versioning": "semver"
     }
   ],
-  "pinDigests": true
+  "regexManagers": [
+    {
+      "fileMatch": ["\\.github/workflows/release\\.yml$"],
+      "matchStrings": [
+        "tags:\\s*loeken/jellyfin:(?<currentValue>[^,]+)"
+      ],
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "loeken/jellyfin",
+      "versioningTemplate": "loeken/jellyfin:{{currentValue}}",
+      "extractVersionTemplate": "{{currentValue}}"
+    }
+  ],
+  "schedule": ["after 10am on Monday"]
 }
