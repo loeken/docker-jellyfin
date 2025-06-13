@@ -7,8 +7,7 @@
         "loeken/jellyfin:(?<currentValue>\\d+\\.\\d+\\.\\d+)"
       ],
       "datasourceTemplate": "github-releases",
-      "packageNameTemplate": "jellyfin/jellyfin",
-      "versioning": "semver"
+      "packageNameTemplate": "jellyfin/jellyfin"
     }
   ],
   "packageRules": [
