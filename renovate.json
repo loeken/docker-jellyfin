@@ -12,10 +12,12 @@
   ],
   "packageRules": [
     {
+      "matchManagers": ["regex"],
       "matchDatasources": ["github-releases"],
       "matchPackageNames": ["jellyfin/jellyfin"],
       "groupName": "jellyfin release tags",
-      "automerge": true
+      "automerge": true,
+      "automergeType": "pr"
     }
   ]
 }
