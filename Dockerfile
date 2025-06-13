@@ -27,10 +27,9 @@ RUN apk add --no-cache \
      libva-intel-driver \
      onevpl
 COPY --from=builder /output /
-
 RUN ln -s /usr/share/webapps/jellyfin-web /usr/lib/jellyfin/jellyfin-web
 
-ENTRYPOINT ["/usr/local/bin/jellyfin", \
+ENTRYPOINT ["/usr/bin/jellyfin", \
      "--datadir", "/config", \
      "--cachedir", "/cache", \
      "--ffmpeg", "/usr/local/bin/ffmpeg"]
