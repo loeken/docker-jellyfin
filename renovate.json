@@ -1,36 +1,22 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "prConcurrentLimit": 0,
-  "branchConcurrentLimit": 0,
-  "prHourlyLimit": 0,
-  "pinDigests": true,
-  "packageRules": [
+  "regexManagers": [
     {
-      "matchDatasources": ["docker"],
-      "matchPackageNames": ["jellyfin/jellyfin"],
-      "groupName": "jellyfin",
-      "automerge": true
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["loeken/jellyfin"],
-      "groupName": "loeken/jellyfin",
-      "automerge": true,
-      "extractVersion": "loeken/jellyfin:(?<version>.*)",
+      "fileMatch": ["^\\.github/workflows/release\\.yml$"],
+      "matchStrings": [
+        "loeken/jellyfin:(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "packageNameTemplate": "jellyfin/jellyfin",
       "versioning": "semver"
     }
   ],
-  "regexManagers": [
+  "packageRules": [
     {
-      "fileMatch": ["\\.github/workflows/release\\.yml$"],
-      "matchStrings": [
-        "tags:\\s*loeken/jellyfin:(?<currentValue>[^,]+)"
-      ],
-      "datasourceTemplate": "docker",
-      "depNameTemplate": "loeken/jellyfin",
-      "versioningTemplate": "loeken/jellyfin:{{currentValue}}",
-      "extractVersionTemplate": "{{currentValue}}"
+      "matchDatasources": ["github-releases"],
+      "matchPackageNames": ["jellyfin/jellyfin"],
+      "groupName": "jellyfin release tags",
+      "automerge": true
     }
-  ],
-  "schedule": ["after 10am on Monday"]
+  ]
 }
