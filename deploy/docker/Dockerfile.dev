@@ -1,5 +1,5 @@
 # Use Debian-based Node image
-FROM node:latest@sha256:d1db2ecd11f417ab2ff4fef891b4d27194c367d101f9b9cd546a26e424e93d31
+FROM node:latest@sha256:a84dedcbbcf651db49178dd876bad1ea63bc6770891337a05246991bceca55a7
 
 # Set working directory
 WORKDIR /app
