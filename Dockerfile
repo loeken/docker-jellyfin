@@ -19,7 +19,12 @@ RUN apk add --no-cache \
     v4l-utils-dev \
     alsa-lib-dev \
     intel-media-sdk-dev \
-    onevpl-dev
+    onevpl-dev \
+    nodejs \
+    npm
+
+# Install pnpm 10.x
+RUN npm install -g pnpm@10
 
 # Optional: You could also add `--enable-libvpx` or `--enable-libfdk_aac` if needed
 
