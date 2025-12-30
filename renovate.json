@@ -1,5 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "automerge": true,
+  "automergeType": "pr",
   "regexManagers": [
     {
       "fileMatch": ["^\\.github/workflows/release\\.yml$"],
