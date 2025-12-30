@@ -16,7 +16,6 @@ RUN apk add --no-cache \
     x264-dev \
     x265-dev \
     xvidcore-dev \
-    v4l-utils-dev \
     alsa-lib-dev \
     nodejs \
     npm
@@ -39,7 +38,6 @@ RUN ./configure \
   --enable-libx264 \
   --enable-libx265 \
   --enable-libxvid \
-  --enable-libv4l2 \
   --enable-hwaccel=h264_vaapi \
   --enable-hwaccel=hevc_vaapi
 
@@ -64,7 +62,6 @@ RUN apk add --no-cache \
     tzdata \
     bash \
     alsa-lib \
-    v4l-utils \
     ffmpeg  # This line is safe to remove if you only want your custom-built ffmpeg
 
 # Copy in your compiled ffmpeg (with hwaccel support)
