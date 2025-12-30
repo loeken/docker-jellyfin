@@ -18,8 +18,6 @@ RUN apk add --no-cache \
     xvidcore-dev \
     v4l-utils-dev \
     alsa-lib-dev \
-    intel-media-sdk-dev \
-    onevpl-dev \
     nodejs \
     npm
 
@@ -41,7 +39,6 @@ RUN ./configure \
   --enable-libx264 \
   --enable-libx265 \
   --enable-libxvid \
-  --enable-libvpl \
   --enable-libv4l2 \
   --enable-hwaccel=h264_vaapi \
   --enable-hwaccel=hevc_vaapi
@@ -62,9 +59,7 @@ RUN apk add --no-cache \
     mesa-dri-gallium \
     mesa-vulkan-intel \
     intel-media-driver \
-    intel-media-sdk \
     libva-intel-driver \
-    onevpl \
     libdrm \
     tzdata \
     bash \
