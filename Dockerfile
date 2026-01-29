@@ -1,4 +1,4 @@
-FROM alpine:3.23@sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62 as builder
+FROM alpine:3.23@sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3f659 as builder
 
 # Required for compiling ffmpeg with VAAPI/QSV
 RUN apk add --no-cache \
@@ -45,7 +45,7 @@ RUN make -j$(nproc)
 RUN make install DESTDIR=/output
 
 
-FROM alpine:3.23@sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62
+FROM alpine:3.23@sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3f659
 
 # Install runtime dependencies for Jellyfin and VAAPI/QSV
 RUN apk add --no-cache \
