@@ -35,6 +35,6 @@ jobs:
         uses: docker/build-push-action@d08e5c354a6adb9ed34480a06d141179aa583294 # v7
         with:
           push: true
-          tags: loeken/jellyfin:10.11.7,loeken/jellyfin:latest
+          tags: loeken/jellyfin:10.11.8,loeken/jellyfin:latest
           context: ./jf
           no-cache: true
